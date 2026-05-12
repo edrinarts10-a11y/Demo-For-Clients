@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Norena Hotel Nakasongola — A Calm Place to Stay</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brown:#8B4513;
+  --brown2:#A0522D;
+  --orange:#D2691E;
+  --cream:#FDF6EC;
+  --cream2:#F5ECD8;
+  --green:#2D5A27;
+  --green2:#3A7032;
+  --gold:#C8972A;
+  --dark:#1A1208;
+  --muted:rgba(26,18,8,0.5);
+  --white:#FFFEF9;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--dark);
+  font-family:'Jost',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:16px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(253,246,236,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(200,151,42,0.2);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:600;
+  color:var(--brown);letter-spacing:1px;
+}
+.nav-book{
+  background:var(--green);color:white;
+  padding:9px 20px;border-radius:2px;
+  text-decoration:none;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:background 0.2s;
+}
+.nav-book:hover{background:var(--green2)}
+
+/* ── HERO ── */
+.hero{
+  height:100vh;position:relative;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(26,18,8,0.85) 0%, rgba(26,18,8,0.2) 55%, transparent 100%),
+    linear-gradient(135deg, rgba(139,69,19,0.15) 0%, transparent 50%);
+  background-color:#2D5A27;
+  z-index:1;
+}
+
+/* Garden illustration using CSS */
+.hero-garden{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 20% 60%, #3A7032 0%, #2D5A27 40%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 75% 70%, #8B6914 0%, #6B4F10 50%, transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 90%, #5C3D0A 0%, #3D2A07 100%),
+    radial-gradient(ellipse 30% 40% at 85% 50%, #4A7A3A 0%, transparent 60%),
+    linear-gradient(to bottom, #87CEEB 0%, #B0D4E8 40%, #6BA368 60%, #4A7A3A 100%);
+}
+
+/* Floating leaves */
+.leaf{
+  position:absolute;z-index:0;
+  border-radius:50% 0 50% 0;
+  opacity:0.15;
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 20px 52px;
+  max-width:580px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);margin-bottom:16px;
+}
+.hero-tag::before{content:'';width:20px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.6rem,8vw,4.8rem);
+  font-weight:300;line-height:1.08;
+  color:white;margin-bottom:14px;
+  letter-spacing:-0.5px;
+}
+.hero h1 em{font-style:italic;color:#D4A84B}
+.hero-sub{
+  font-size:13px;color:rgba(255,255,255,0.6);
+  font-weight:300;line-height:1.9;
+  max-width:360px;margin-bottom:28px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:var(--dark);
+  padding:13px 26px;border-radius:2px;
+  text-decoration:none;font-size:11px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  transition:background 0.2s,transform 0.2s;
+}
+.btn-gold:hover{background:#D4A84B;transform:translateY(-2px)}
+.btn-outline-w{
+  border:1px solid rgba(255,255,255,0.4);
+  color:rgba(255,255,255,0.8);
+  padding:13px 26px;border-radius:2px;
+  text-decoration:none;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-outline-w:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Scroll line */
+.hero-scroll{
+  position:absolute;bottom:28px;right:20px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.scroll-line{
+  width:1px;height:44px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:sLine 2s ease-in-out infinite;
+}
+@keyframes sLine{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-scroll span{
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);writing-mode:vertical-rl;
+}
+
+/* ── RATINGS STRIP ── */
+.ratings-strip{
+  background:var(--green);
+  display:flex;justify-content:center;
+  flex-wrap:wrap;
+  border-bottom:2px solid var(--gold);
+}
+.rating-item{
+  padding:20px 24px;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.1);
+  flex:1;min-width:100px;
+}
+.rating-item:last-child{border-right:none}
+.rating-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;color:var(--gold);line-height:1;margin-bottom:4px;
+}
+.rating-label{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+}
+
+/* ── SECTION COMMON ── */
+.section{padding:72px 20px;max-width:760px;margin:0 auto}
+.eyebrow{
+  font-size:9px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:300;line-height:1.2;
+  color:var(--brown);margin-bottom:14px;
+}
+.sec-title em{font-style:italic;color:var(--green)}
+.sec-rule{
+  width:40px;height:2px;
+  background:var(--gold);margin:14px 0 24px;opacity:0.6;
+}
+.sec-body{
+  font-size:13px;color:var(--muted);line-height:1.9;font-weight:300;
+}
+
+/* ── ABOUT ── */
+.about-bg{background:var(--white)}
+.about-grid{
+  display:grid;grid-template-columns:1fr;gap:28px;
+  margin-top:28px;
+}
+.about-highlights{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;
+}
+.highlight{
+  background:var(--cream2);
+  border:1px solid rgba(200,151,42,0.2);
+  border-radius:4px;padding:14px 12px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.hl-icon{font-size:18px;flex-shrink:0}
+.hl-text strong{display:block;font-size:11px;color:var(--brown);font-weight:600;margin-bottom:2px}
+.hl-text span{font-size:10px;color:var(--muted)}
+
+/* ── GALLERY ── */
+.gallery-bg{background:var(--cream2)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:160px 160px;
+  gap:8px;margin-top:28px;
+}
+.g-card{
+  border-radius:4px;overflow:hidden;position:relative;
+}
+.g-card.tall{grid-row:span 2}
+.g-card-inner{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;
+  position:relative;overflow:hidden;
+}
+.g-card:nth-child(1) .g-card-inner{background:linear-gradient(135deg,#3A7032,#2D5A27)}
+.g-card:nth-child(2) .g-card-inner{background:linear-gradient(135deg,#8B6914,#6B4F10)}
+.g-card:nth-child(3) .g-card-inner{background:linear-gradient(135deg,#D2691E,#8B4513)}
+.g-card:nth-child(4) .g-card-inner{background:linear-gradient(135deg,#2D5A27,#4A7A3A)}
+.g-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(26,18,8,0.75));
+  padding:18px 12px 10px;
+}
+.g-overlay span{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+}
+
+/* ── REVIEWS ── */
+.reviews-bg{background:var(--dark)}
+.reviews-section{padding:72px 20px;max-width:760px;margin:0 auto}
+.reviews-section .eyebrow{color:var(--gold)}
+.reviews-section .sec-title{color:white}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.rev{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(200,151,42,0.15);
+  border-radius:4px;padding:18px 16px;
+  transition:border-color 0.3s;
+}
+.rev:hover{border-color:rgba(200,151,42,0.4)}
+.rev-stars{font-size:12px;margin-bottom:8px}
+.rev-text{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.8;font-style:italic;margin-bottom:10px}
+.rev-name{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+
+/* ── CTA ── */
+.cta-section{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  padding:64px 20px;text-align:center;
+}
+.cta-section h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:300;color:white;margin-bottom:10px;
+}
+.cta-section p{font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:28px;line-height:1.8}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#25d366;color:white;
+  padding:14px 28px;border-radius:2px;
+  text-decoration:none;font-size:12px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  transition:opacity 0.2s,transform 0.2s;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.btn-wa:hover{opacity:0.9;transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);
+  padding:36px 20px;text-align:center;
+  border-top:1px solid rgba(200,151,42,0.2);
+}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;color:var(--gold);margin-bottom:8px;
+}
+.footer-info{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8}
+.demo-badge{
+  display:inline-block;
+  background:rgba(200,151,42,0.15);
+  border:1px solid rgba(200,151,42,0.3);
+  color:var(--gold);
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;margin-bottom:16px;
+}
+
+/* ── FADE ── */
+.fade{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s}
+.fade.in{opacity:1;transform:translateY(0)}
+.fd1{transition-delay:0.1s}.fd2{transition-delay:0.2s}.fd3{transition-delay:0.3s}
+
+/* ── BANJI BOT ── */
+.banji-toggle{
+  position:fixed;bottom:24px;right:20px;z-index:9990;
+  width:54px;height:54px;border-radius:50%;border:none;
+  background:var(--green);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  transition:transform 0.2s;
+  animation:bPulse 3s 5s infinite;
+}
+.banji-toggle:hover{transform:scale(1.08)}
+@keyframes bPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+  50%{box-shadow:0 0 0 10px rgba(45,90,39,0.15),0 4px 20px rgba(0,0,0,0.3)}
+}
+.banji-notif{
+  position:absolute;top:-3px;right:-3px;
+  background:#ef4444;color:white;width:18px;height:18px;
+  border-radius:50%;font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--cream);font-family:'Jost',sans-serif;
+}
+.banji-notif.hidden{display:none}
+.banji-window{
+  position:fixed;bottom:88px;right:16px;z-index:9989;
+  width:310px;max-width:calc(100vw - 32px);
+  background:var(--white);
+  border:1px solid rgba(200,151,42,0.25);
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 16px 48px rgba(0,0,0,0.2);
+  display:none;flex-direction:column;
+}
+.banji-window.open{display:flex;animation:bUp 0.3s cubic-bezier(0.16,1,0.3,1)}
+@keyframes bUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.banji-header{
+  background:var(--green);padding:13px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.banji-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+.banji-name{font-size:12px;font-weight:600;color:white}
+.banji-ai{font-size:8px;letter-spacing:1px;background:var(--gold);color:var(--dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px}
+.banji-status{font-size:10px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:4px;margin-top:1px}
+.banji-dot{width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block}
+.banji-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:14px;padding:4px}
+.banji-close:hover{color:white}
+.banji-messages{
+  flex:1;overflow-y:auto;padding:14px;
+  display:flex;flex-direction:column;gap:8px;
+  min-height:240px;max-height:320px;
+  background:var(--cream);
+}
+.bm{max-width:82%;padding:9px 12px;border-radius:12px;font-size:12px;line-height:1.6;animation:mIn 0.2s ease}
+@keyframes mIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.bm.bot{background:white;border:1px solid rgba(200,151,42,0.15);color:var(--dark);align-self:flex-start;border-bottom-left-radius:3px}
+.bm.user{background:var(--green);color:white;align-self:flex-end;border-bottom-right-radius:3px}
+.bm a{color:var(--green);font-weight:700;text-decoration:underline}
+.bm-typing{background:white;border:1px solid rgba(200,151,42,0.15);align-self:flex-start;padding:11px 14px;border-radius:12px;border-bottom-left-radius:3px;display:flex;gap:4px;align-items:center}
+.bm-typing span{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:tDot 1.2s infinite}
+.bm-typing span:nth-child(2){animation-delay:.2s}
+.bm-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+.banji-btns{display:flex;flex-wrap:wrap;gap:5px;align-self:flex-start;max-width:95%}
+.banji-btn{
+  background:white;border:1px solid rgba(45,90,39,0.3);
+  color:var(--green);padding:7px 11px;border-radius:16px;
+  font-size:11px;font-weight:600;cursor:pointer;font-family:'Jost',sans-serif;
+  transition:background 0.2s,transform 0.15s;
+}
+.banji-btn:hover{background:var(--cream2);transform:translateY(-1px)}
+.banji-input-row{
+  border-top:1px solid rgba(200,151,42,0.15);
+  padding:9px 11px;display:flex;gap:7px;align-items:center;
+  background:white;
+}
+.banji-input{
+  flex:1;background:var(--cream);border:1px solid rgba(200,151,42,0.2);
+  border-radius:16px;padding:8px 13px;color:var(--dark);
+  font-family:'Jost',sans-serif;font-size:12px;outline:none;
+  transition:border-color 0.2s;
+}
+.banji-input:focus{border-color:var(--green)}
+.banji-input::placeholder{color:var(--muted)}
+.banji-send{
+  width:32px;height:32px;border-radius:50%;border:none;
+  background:var(--green);color:white;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:background 0.2s;
+}
+.banji-send:hover{background:var(--green2)}
+
+@media(max-width:480px){
+  .reviews-grid{grid-template-columns:1fr}
+  .about-highlights{grid-template-columns:1fr}
+  .gallery-grid{grid-template-rows:140px 140px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Norena Hotel Nakasongola</div>
+  <a href="#contact" class="nav-book">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-garden"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Nakasongola, Uganda 🇺🇬</div>
+    <h1>A Calm Place<br>to <em>Rest & Unwind</em></h1>
+    <p class="hero-sub">Beautiful gardens, warm hospitality and comfortable rooms in the heart of Nakasongola. Where peace meets excellent service.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">Book a Room</a>
+      <a href="#about" class="btn-outline-w">Explore More</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- RATINGS STRIP -->
+<div class="ratings-strip">
+  <div class="rating-item">
+    <div class="rating-num">3.6★</div>
+    <div class="rating-label">Google Rating</div>
+  </div>
+  <div class="rating-item">
+    <div class="rating-num">97</div>
+    <div class="rating-label">Reviews</div>
+  </div>
+  <div class="rating-item">
+    <div class="rating-num">4.1</div>
+    <div class="rating-label">Rooms</div>
+  </div>
+  <div class="rating-item">
+    <div class="rating-num">3.7</div>
+    <div class="rating-label">Service</div>
+  </div>
+  <div class="rating-item">
+    <div class="rating-num">3.8</div>
+    <div class="rating-label">Location</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-bg">
+  <div class="section" id="about">
+    <p class="eyebrow fade">Who We Are</p>
+    <h2 class="sec-title fade fd1">A <em>peaceful retreat</em><br>in Nakasongola</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-body fade fd2">Norena Hotel Nakasongola is known for its beautiful gardens, calm environment and genuine Ugandan hospitality. Whether you're travelling for business or pleasure, we offer comfortable rooms, great food and a serene atmosphere that makes you want to come back.</p>
+    <div class="about-highlights fade fd3">
+      <div class="highlight">
+        <div class="hl-icon">🌿</div>
+        <div class="hl-text"><strong>Beautiful Gardens</strong><span>Lush green gardens and a calm compound</span></div>
+      </div>
+      <div class="highlight">
+        <div class="hl-icon">🍽</div>
+        <div class="hl-text"><strong>Restaurant & Dining</strong><span>Enjoy a nice dinner in a calm setting</span></div>
+      </div>
+      <div class="highlight">
+        <div class="hl-icon">🛏</div>
+        <div class="hl-text"><strong>Comfortable Rooms</strong><span>Clean, quiet rooms rated 4.1 by guests</span></div>
+      </div>
+      <div class="highlight">
+        <div class="hl-icon">😊</div>
+        <div class="hl-text"><strong>Excellent Customer Care</strong><span>Friendly and helpful staff every time</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery-bg">
+  <div class="section" id="gallery">
+    <p class="eyebrow fade">Our Spaces</p>
+    <h2 class="sec-title fade fd1">See What Awaits <em>You</em></h2>
+    <div class="sec-rule"></div>
+    <div class="gallery-grid fade fd2">
+      <div class="g-card tall">
+        <div class="g-card-inner">🌳</div>
+        <div class="g-overlay"><span>The Gardens</span></div>
+      </div>
+      <div class="g-card">
+        <div class="g-card-inner">🌿</div>
+        <div class="g-overlay"><span>Green Lawn</span></div>
+      </div>
+      <div class="g-card">
+        <div class="g-card-inner">🏨</div>
+        <div class="g-overlay"><span>Hotel Building</span></div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:12px;text-align:center">📸 Your actual hotel photos will replace these placeholders</p>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-bg">
+  <div class="reviews-section">
+    <p class="eyebrow fade">What Guests Say</p>
+    <h2 class="sec-title fade fd1">Real <em>Reviews</em></h2>
+    <div class="sec-rule" style="background:var(--gold)"></div>
+    <div class="reviews-grid fade fd2">
+      <div class="rev">
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rev-text">"Very friendly and helpful staff! Enjoyed our stay and a nice dinner. Calm and cool place."</p>
+        <div class="rev-name">Local Guide · 3 months ago</div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">⭐⭐⭐⭐</div>
+        <p class="rev-text">"Very beautiful area and very calm environment with limited noise. Rooms: 5, Service: 4, Location: 5."</p>
+        <div class="rev-name">Gentle Joss · 9 months ago</div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rev-text">"Their customer care is awesome and they are quick in delivery. Shine up!"</p>
+        <div class="rev-name">Verified Guest</div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rev-text">"A cool and calm place to stay. The gardens are lovely and the compound is very well kept."</p>
+        <div class="rev-name">Google Review</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section fade" id="contact">
+  <p class="eyebrow" style="color:rgba(255,255,255,0.5)">Reserve Your Stay</p>
+  <h2>Ready to Book?</h2>
+  <p>Contact us on WhatsApp and we'll confirm your room within minutes.</p>
+  <a href="https://wa.me/256000000000?text=Hello%20Norena%20Hotel%20Nakasongola%2C%20I%20would%20like%20to%20book%20a%20room." class="btn-wa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+    Book on WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="demo-badge">Website Demo by Edrine Arts</div>
+  <div class="footer-logo">Norena Hotel Nakasongola</div>
+  <div class="footer-info">
+    Nakasongola, Uganda · Beautiful Gardens · Calm Environment<br>
+    <span style="color:rgba(200,151,42,0.5);font-size:10px">This is a demo. Full website available — contact Edrine Arts.</span>
+  </div>
+</footer>
+
+<!-- ═══════════ BANJI BOT ═══════════ -->
+<button class="banji-toggle" id="banjiToggle" onclick="banjiOpen()" aria-label="Chat">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <span class="banji-notif" id="banjiNotif" style="display:none">1</span>
+</button>
+
+<div class="banji-window" id="banjiWindow">
+  <div class="banji-header">
+    <div class="banji-avatar">🤖</div>
+    <div>
+      <div class="banji-name">Banji <span class="banji-ai">AI</span></div>
+      <div class="banji-status"><span class="banji-dot"></span> Online</div>
+    </div>
+    <button class="banji-close" onclick="banjiClose()">✕</button>
+  </div>
+  <div class="banji-messages" id="banjiMsgs"></div>
+  <div class="banji-input-row" id="banjiInputRow" style="display:none">
+    <input class="banji-input" id="banjiInput" placeholder="Type a message…" autocomplete="off"/>
+    <button class="banji-send" onclick="banjiSend()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const EDRINE_WA = '256701114363';
+  const HOTEL_WA  = '256000000000'; // hotel replaces this
+  let open=false, started=false;
+  const win   = document.getElementById('banjiWindow');
+  const msgs  = document.getElementById('banjiMsgs');
+  const notif = document.getElementById('banjiNotif');
+  const iRow  = document.getElementById('banjiInputRow');
+  const iEl   = document.getElementById('banjiInput');
+
+  window.banjiSend = function(){};
+
+  window.banjiOpen = function(){
+    if(open) return;
+    open=true;
+    win.classList.add('open');
+    notif.style.display='none';
+    if(!started){ started=true; setTimeout(flow,400); }
+    msgs.scrollTop=msgs.scrollHeight;
+  };
+  window.banjiClose = function(){
+    open=false; win.classList.remove('open');
+  };
+
+  function sd(){ msgs.scrollTop=msgs.scrollHeight; }
+
+  function bub(text,type='bot'){
+    const d=document.createElement('div');
+    d.className='bm '+type; d.innerHTML=text;
+    msgs.appendChild(d); sd();
+  }
+
+  function say(text, delay=0){
+    return new Promise(res=>{
+      setTimeout(()=>{
+        const t=document.createElement('div');
+        t.className='bm-typing';
+        t.innerHTML='<span></span><span></span><span></span>';
+        msgs.appendChild(t); sd();
+        setTimeout(()=>{ t.remove(); bub(text,'bot'); res(); },900);
+      },delay);
+    });
+  }
+
+  function btns(opts, cb){
+    const w=document.createElement('div');
+    w.className='banji-btns';
+    opts.forEach(o=>{
+      const b=document.createElement('button');
+      b.className='banji-btn'; b.textContent=o;
+      b.onclick=()=>{ w.remove(); cb(o); };
+      w.appendChild(b);
+    });
+    msgs.appendChild(w); sd();
+  }
+
+  function input(ph, cb){
+    iRow.style.display='flex'; iEl.placeholder=ph; iEl.value='';
+    setTimeout(()=>iEl.focus(),100);
+    const go=()=>{
+      if(!iEl.value.trim()) return;
+      const v=iEl.value.trim();
+      iRow.style.display='none';
+      window.banjiSend=function(){};
+      bub(v,'user'); cb(v);
+    };
+    iEl.onkeypress=e=>{ if(e.key==='Enter') go(); };
+    window.banjiSend=go;
+  }
+
+  async function flow(){
+    await say("👋 Welcome to Norena Hotel Nakasongola!");
+    await say("I'm Banji, your virtual assistant. I can help you book a room or answer any questions. 🌿",300);
+    setTimeout(()=>{
+      btns(["🛏 Book a Room","📍 Location","🌿 Our Facilities","💰 Room Rates"],handleMain);
+    },400);
+  }
+
+  async function handleMain(o){
+    bub(o,'user');
+    if(o==="🛏 Book a Room"){
+      await say("Great! Let me help you book your stay at Norena Hotel.");
+      await say("What's your name?",300);
+      input("Your name…", async name=>{
+        await say(`Welcome ${name}! 😊 When would you like to check in?`,200);
+        input("Check-in date e.g. 20 May 2026", async checkin=>{
+          await say(`Perfect. And how many nights will you be staying?`,200);
+          input("Number of nights e.g. 2", async nights=>{
+            const wa=encodeURIComponent(`Hello Norena Hotel! 🌿\n\nI would like to book a room:\n\nName: ${name}\nCheck-in: ${checkin}\nNights: ${nights}\n\nPlease confirm availability. Thank you!`);
+            await say(`All set ${name}! Tap below to send your booking to the hotel. ✅`,200);
+            setTimeout(()=>{
+              bub(`<a href="https://wa.me/${HOTEL_WA}?text=${wa}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25d366;color:#fff;padding:9px 14px;border-radius:16px;text-decoration:none;font-weight:700;font-size:12px">📲 Send Booking on WhatsApp</a>`,'bot');
+              setTimeout(sellDemo,1500);
+            },400);
+          });
+        });
+      });
+    } else if(o==="📍 Location"){
+      await say("Norena Hotel is located in Nakasongola, Uganda. 📍");
+      await say("Known for its calm environment and beautiful gardens. Easy to reach from the main road.",300);
+      setTimeout(()=>btns(["🛏 Book a Room","🌿 Our Facilities","More info"],handleMain),400);
+    } else if(o==="🌿 Our Facilities"){
+      await say("Norena Hotel offers:");
+      await say("🌳 Beautiful gardens & calm compound<br>🍽 Restaurant & dining<br>🛏 Clean, comfortable rooms<br>😊 Excellent customer care<br>🅿️ Ample parking space",200);
+      setTimeout(()=>btns(["🛏 Book a Room","💰 Room Rates"],handleMain),400);
+    } else if(o==="💰 Room Rates"){
+      await say("For current room rates and availability, please contact the hotel directly. 💬");
+      const wa=encodeURIComponent("Hello Norena Hotel! I would like to know your room rates and availability.");
+      setTimeout(()=>{
+        bub(`<a href="https://wa.me/${HOTEL_WA}?text=${wa}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#25d366;color:#fff;padding:9px 14px;border-radius:16px;text-decoration:none;font-weight:700;font-size:12px">💬 Ask on WhatsApp</a>`,'bot');
+        setTimeout(sellDemo,1200);
+      },400);
+    } else {
+      setTimeout(flow,300);
+    }
+  }
+
+  async function sellDemo(){
+    await say("────────────────",600);
+    await say("✨ <strong>You're looking at a DEMO website</strong> built by Edrine Arts.",800);
+    await say("Imagine your guests using this every day to book rooms, ask questions and find your hotel on Google. 🚀",400);
+    await say("A full website like this includes:\n✅ Real booking system\n✅ Full photo gallery\n✅ SEO so Google finds you\n✅ Your real WhatsApp number\n✅ This AI chatbot — fully set up",400);
+    setTimeout(()=>{
+      const wa=encodeURIComponent("Hello Edrine! I saw the demo for Norena Hotel and I'm interested in getting a full website for my business. Can we talk?");
+      bub(`<a href="https://wa.me/${EDRINE_WA}?text=${wa}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#2D5A27;color:#fff;padding:10px 16px;border-radius:16px;text-decoration:none;font-weight:700;font-size:12px">👉 Get the Full Website — Chat with Edrine</a>`,'bot');
+    },600);
+  }
+
+  // Show notif after 6s
+  setTimeout(()=>{ if(!open) notif.style.display='flex'; },6000);
+})();
+
+// Scroll fade
+const obs=new IntersectionObserver(e=>{
+  e.forEach(el=>{ if(el.isIntersecting){ el.target.classList.add('in'); obs.unobserve(el.target); } });
+},{threshold:0.08});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
