@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed – Ritz Motel Namusera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="IMG_20260613_023639.jpg" class="logo-icon" alt="Ritz Motel logo">
+    <div class="logo-text">Ritz Motel <span>Always Better</span></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" style="color:var(--red);">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="bar.html">Bar &amp; Restaurant</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Room</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<div class="confirmed-wrap">
+  <div class="confirmed-card">
+    <div class="confirmed-icon">🎉</div>
+    <h1>Booking <em>Confirmed!</em></h1>
+    <div class="status-box" id="statusBox">
+      <p id="statusText">✅ Payment received successfully!</p>
+    </div>
+    <p>Thank you for booking with Ritz Motel Namusera. We'll send a confirmation to your contact details shortly. If you have any questions, call or WhatsApp us.</p>
+    <div class="confirmed-btns">
+      <a href="https://wa.me/256787700044?text=Hello%20Ritz%20Motel!%20I%20just%20completed%20my%20booking%20payment." class="btn-red" target="_blank">💬 WhatsApp Us</a>
+      <a href="index.html" class="btn-outline-red">← Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Read status from URL params
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('OrderPaymentStatus') || params.get('status');
+  const ref = params.get('OrderMerchantReference') || params.get('ref');
+  
+  if (status && status.toLowerCase() !== 'completed') {
+    document.getElementById('statusBox').style.background = '#FFF3E0';
+    document.getElementById('statusText').style.color = '#E65100';
+    document.getElementById('statusText').textContent = '⏳ Payment is being processed. We will confirm once complete.';
+  }
+  if (ref) {
+    const p = document.createElement('p');
+    p.style.cssText = 'font-size:12px;color:#999;margin-top:16px;';
+    p.textContent = `Reference: ${ref}`;
+    document.querySelector('.confirmed-card').appendChild(p);
+  }
+</script>
+</body>
+</html>

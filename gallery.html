@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery – Ritz Motel Namusera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="IMG_20260613_023639.jpg" class="logo-icon" alt="Ritz Motel logo">
+    <div class="logo-text">Ritz Motel <span>Always Better</span></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="bar.html">Bar &amp; Restaurant</a></li>
+    <li><a href="gallery.html" style="color:var(--red);">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Room</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">Photo Gallery</p>
+    <h1>See <em>Ritz</em></h1>
+    <p>A glimpse into our rooms, bar, gardens and outdoor spaces at Ritz Motel Namusera.</p>
+  </div>
+  <div class="page-hero-deco">📸</div>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-filters">
+    <button class="gf-btn active" onclick="filterGallery('all', this)">All · 19</button>
+    <button class="gf-btn" onclick="filterGallery('bar', this)">🍺 Bar & Lounge · 4</button>
+    <button class="gf-btn" onclick="filterGallery('facility', this)">🏨 Facility · 6</button>
+    <button class="gf-btn" onclick="filterGallery('gardens', this)">🌿 Gardens · 7</button>
+    <button class="gf-btn" onclick="filterGallery('exterior', this)">🌆 Exterior · 2</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- BAR & LOUNGE -->
+    <div class="g-item wide" data-cat="bar" onclick="openLightbox(this, 'The Bar – Ritz Motel')">
+      <img src="bar_lounge.jpg" alt="Bar lounge with blue lighting">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Bar & Lounge</div>
+    </div>
+    <div class="g-item" data-cat="bar" onclick="openLightbox(this, 'Bar Counter – Ritz Motel')">
+      <img src="bar_counter.jpg" alt="Bar counter">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Bar & Lounge</div>
+    </div>
+    <div class="g-item" data-cat="bar" onclick="openLightbox(this, 'Lobby Lounge – Ritz Motel')">
+      <img src="lobby_sofas.jpg" alt="Lobby with teal sofas">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Bar & Lounge</div>
+    </div>
+    <div class="g-item" data-cat="bar" onclick="openLightbox(this, 'Reception – Ritz Motel')">
+      <img src="reception.jpg" alt="Reception desk">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Bar & Lounge</div>
+    </div>
+
+    <!-- FACILITY -->
+    <div class="g-item wide" data-cat="facility" onclick="openLightbox(this, 'Balcony View – Ritz Motel')">
+      <img src="balcony_view.jpg" alt="Balcony with panoramic view">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+    <div class="g-item" data-cat="facility" onclick="openLightbox(this, 'Corridor – Ritz Motel')">
+      <img src="corridor.jpg" alt="Corridor">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+    <div class="g-item" data-cat="facility" onclick="openLightbox(this, 'Corridor Seating – Ritz Motel')">
+      <img src="corridor_seating.jpg" alt="Corridor seating area">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+    <div class="g-item" data-cat="facility" onclick="openLightbox(this, 'Outdoor Terrace – Ritz Motel')">
+      <img src="seat.jpg" alt="Outdoor seating area">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+    <div class="g-item" data-cat="facility" onclick="openLightbox(this, 'Night Terrace – Ritz Motel')">
+      <img src="terrace_night.jpg" alt="Terrace at night">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+    <div class="g-item" data-cat="facility" onclick="openLightbox(this, 'Interior Light – Ritz Motel')">
+      <img src="wall_lamp.jpg" alt="Interior wall lamp">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Facility</div>
+    </div>
+
+    <!-- GARDENS -->
+    <div class="g-item wide" data-cat="gardens" onclick="openLightbox(this, 'Garden Path – Ritz Motel')">
+      <img src="garden_path.jpg" alt="Garden pathway">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Garden Path – Ritz Motel')">
+      <img src="garden_path_2.jpg" alt="Garden path 2">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Green Garden – Ritz Motel')">
+      <img src="garden_green.jpg" alt="Green garden lawn">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Garden Lawn – Ritz Motel')">
+      <img src="garden_lawn.jpg" alt="Garden lawn">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Garden at Night – Ritz Motel')">
+      <img src="garden_night_1.jpg" alt="Garden at night">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Garden Night Lights – Ritz Motel')">
+      <img src="garden_night_2.jpg" alt="Garden night lights">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+    <div class="g-item" data-cat="gardens" onclick="openLightbox(this, 'Garden Evening – Ritz Motel')">
+      <img src="garden_night_3.jpg" alt="Garden evening">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Gardens</div>
+    </div>
+
+    <!-- EXTERIOR -->
+    <div class="g-item wide" data-cat="exterior" onclick="openLightbox(this, 'Ritz Motel Entrance – Night')">
+      <img src="entrance_night.jpg" alt="Entrance at night">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Exterior</div>
+    </div>
+    <div class="g-item" data-cat="exterior" onclick="openLightbox(this, 'Ritz Motel Building')">
+      <img src="exterior.jpg" alt="Building exterior">
+      <div class="g-overlay">🔍</div>
+      <div class="g-cat-label">Exterior</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-nav lb-prev" onclick="event.stopPropagation();navLightbox(-1)">‹</button>
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" onclick="event.stopPropagation();navLightbox(1)">›</button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- BOOKING BANNER -->
+<section class="book-banner">
+  <h2>Like What You See?</h2>
+  <p>Come experience Ritz Motel in person. Book a room or plan your next event with us.</p>
+
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <img src="IMG_20260613_023639.jpg" class="logo-icon" alt="Ritz Motel logo">
+          <div class="logo-text">Ritz Motel <span>Always Better</span></div>
+        </div>
+        <p>Clean rooms, a 24/7 bar &amp; restaurant and beautiful gardens along Kampala–Hoima Road, Namusera, Uganda.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/256787700044" aria-label="WhatsApp" target="_blank" rel="noopener">✆</a>
+          <a href="tel:+256787700044" aria-label="Call">☎</a>
+          <a href="mailto:info@ritzmotelnamusera.com" aria-label="Email">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="rooms.html">Rooms</a>
+        <a href="bar.html">Bar &amp; Restaurant</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <p>Hoima Rd, Namusera<br>Off Musembi Road<br>Wakiso, Uganda</p>
+        <a href="tel:+256787700044">0787 700 044</a>
+        <a href="mailto:info@ritzmotelnamusera.com">info@ritzmotelnamusera.com</a>
+      </div>
+      <div class="footer-col">
+        <h5>Good to know</h5>
+        <p>Open 24/7<br>Check-in 12:00 · Check-out 11:00</p>
+        <a href="book.html">Book a room</a>
+        <a href="index.html#contact">Get directions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ritz Motel Namusera. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></span>
+      <span>Designed by <a href="https://wa.me/256761273024" target="_blank" rel="noopener">Dev_Edrine</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/256787700044"><img src="images (4).jpeg" class="float-wa" title="Chat on WhatsApp"></a>
+
+
+<script>
+  // Gallery items for lightbox navigation
+  let lbItems = [];
+  let lbIndex = 0;
+
+  function buildLbItems() {
+    lbItems = Array.from(document.querySelectorAll('#galleryGrid .g-item:not([style*="none"])'));
+  }
+
+  function openLightbox(el, caption) {
+    buildLbItems();
+    lbIndex = lbItems.indexOf(el);
+    const img = el.querySelector('img');
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lbCaption').textContent = caption || img.alt;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function navLightbox(dir) {
+    buildLbItems();
+    lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+    const img = lbItems[lbIndex].querySelector('img');
+    const cap = lbItems[lbIndex].querySelector('.g-cat-label');
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lbCaption').textContent = img.alt;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').classList.contains('open')) {
+      if (e.key === 'ArrowRight') navLightbox(1);
+      if (e.key === 'ArrowLeft') navLightbox(-1);
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  // Touch swipe support for lightbox
+  let touchStartX = 0;
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) navLightbox(diff > 0 ? 1 : -1);
+  }, { passive: true });
+
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.g-item').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
