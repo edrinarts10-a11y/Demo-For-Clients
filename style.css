@@ -1933,3 +1933,374 @@ section { scroll-margin-top: 90px; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+.theme-toggle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, border-color .2s, color .2s, transform .2s;
+}
+.theme-toggle:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-1px); }
+.theme-toggle .tt-sun, .theme-toggle .tt-moon { display: none; line-height: 1; }
+html[data-theme="light"] .theme-toggle .tt-moon { display: block; }
+html[data-theme="light"] .theme-toggle {
+  border-color: rgba(10, 10, 20, 0.15);
+  background: rgba(10, 10, 20, 0.05);
+  color: var(--text);
+}
+html[data-theme="light"] .theme-toggle:hover { background: rgba(10, 10, 20, 0.1); }
+/* default (dark) icon */
+html:not([data-theme="light"]) .theme-toggle .tt-sun { display: block; }
+
+@media (max-width: 900px) {
+  .theme-toggle { margin-left: auto; }
+  .nav-toggle { margin-left: 0; }
+}
+
+/* =========================================================
+   LIGHT THEME — html[data-theme="light"]
+   Same layout, light palette. Dark stays the default.
+========================================================= */
+html[data-theme="light"] {
+  --ink: #F4F4F7;
+  --ink-2: #FFFFFF;
+  --ink-3: #EAEAF0;
+  --paper: #FFFFFF;
+  --paper-2: #FAFAFC;
+  --cream: #FAF6F2;
+  --off-white: #FFFFFF;
+
+  --text: #0A0A14;
+  --text-soft: #55556B;
+  --muted: rgba(10, 10, 20, 0.64);
+  --muted-2: rgba(10, 10, 20, 0.46);
+
+  --border: #E4E4EC;
+  --line-dark: rgba(10, 10, 20, 0.12);
+  --line-dark-soft: rgba(10, 10, 20, 0.07);
+}
+
+html[data-theme="light"] body { background: var(--ink); color: var(--text); }
+
+/* ── nav ─────────────────────────────────────────────── */
+html[data-theme="light"] nav {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(10, 10, 20, 0.09);
+  box-shadow: 0 14px 40px rgba(10, 10, 20, 0.1);
+}
+html[data-theme="light"] .logo-text { color: var(--text); }
+html[data-theme="light"] .logo-text span { color: var(--text-soft); }
+html[data-theme="light"] .nav-links a { color: rgba(10, 10, 20, 0.7); }
+html[data-theme="light"] .nav-links a:hover { color: var(--text); background: rgba(10, 10, 20, 0.06); }
+html[data-theme="light"] .nav-links a[style*="var(--red)"] { color: var(--red) !important; }
+html[data-theme="light"] .nav-toggle {
+  background: rgba(10, 10, 20, 0.05);
+  border-color: rgba(10, 10, 20, 0.14);
+  color: var(--text);
+}
+
+/* ── buttons ─────────────────────────────────────────── */
+html[data-theme="light"] .btn-ghost {
+  background: rgba(10, 10, 20, 0.04);
+  border-color: rgba(10, 10, 20, 0.22);
+  color: var(--text);
+}
+html[data-theme="light"] .btn-ghost:hover { background: var(--text); color: #fff; border-color: var(--text); }
+
+/* ── about ───────────────────────────────────────────── */
+html[data-theme="light"] .about-text { color: var(--text); }
+html[data-theme="light"] .about-text h2 { color: var(--text); }
+html[data-theme="light"] .stat-box { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .stat-box:hover { background: #fff; border-color: rgba(200, 16, 46, 0.35); }
+html[data-theme="light"] .stat-box .num { color: var(--text); }
+html[data-theme="light"] .stat-box .lbl { color: var(--text-soft); }
+
+/* ── rooms ───────────────────────────────────────────── */
+html[data-theme="light"] .rooms-collection { background: var(--ink); }
+html[data-theme="light"] .rooms-header h2 { color: var(--text); }
+html[data-theme="light"] .room-card {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 2px 10px rgba(10, 10, 20, 0.04);
+}
+html[data-theme="light"] .room-card:hover {
+  border-color: rgba(200, 16, 46, 0.45);
+  box-shadow: 0 24px 50px rgba(10, 10, 20, 0.14);
+}
+html[data-theme="light"] .room-content h3 { color: var(--text); }
+html[data-theme="light"] .amenity { color: rgba(10, 10, 20, 0.72); }
+html[data-theme="light"] .room-price { color: var(--text); }
+html[data-theme="light"] .room-footer { border-top-color: var(--border); }
+html[data-theme="light"] .rooms-cta { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .rooms-cta .btn-outline { border-color: rgba(10, 10, 20, 0.2); color: var(--text); }
+html[data-theme="light"] .rooms-cta .btn-outline:hover { background: var(--text); color: #fff; border-color: var(--text); }
+
+/* ── reviews ─────────────────────────────────────────── */
+html[data-theme="light"] .reviews { background: var(--paper); }
+html[data-theme="light"] .review-card {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 6px 18px rgba(10, 10, 20, 0.05);
+}
+html[data-theme="light"] .review-card:hover { box-shadow: 0 18px 40px rgba(10, 10, 20, 0.12); }
+html[data-theme="light"] .reviews-overall { background: #fff; box-shadow: 0 6px 18px rgba(10, 10, 20, 0.05); }
+
+/* ── review form ─────────────────────────────────────── */
+html[data-theme="light"] .review-form-wrap { background: var(--ink); }
+html[data-theme="light"] .review-form-wrap .sec-head h2 { color: var(--text); }
+html[data-theme="light"] .rf-card { background: #fff; border-color: var(--border); box-shadow: 0 20px 50px rgba(10, 10, 20, 0.07); }
+html[data-theme="light"] .rf-rating-label { color: var(--text-soft); }
+html[data-theme="light"] .star-picker .sp-star { color: rgba(10, 10, 20, 0.18); }
+html[data-theme="light"] .star-picker .sp-star.lit { color: var(--gold); }
+html[data-theme="light"] .rf-rating-text { color: var(--text-soft); }
+html[data-theme="light"] .rf-field label { color: var(--text-soft); }
+html[data-theme="light"] .rf-field input,
+html[data-theme="light"] .rf-field textarea {
+  background-color: #F7F7FA;
+  border-color: var(--border);
+  color: var(--text);
+}
+html[data-theme="light"] .rf-field input::placeholder,
+html[data-theme="light"] .rf-field textarea::placeholder { color: rgba(10, 10, 20, 0.35); }
+html[data-theme="light"] .rf-field input:focus,
+html[data-theme="light"] .rf-field textarea:focus { border-color: var(--red); background: #fff; }
+html[data-theme="light"] .rf-msg.ok { color: #1B7A33; background: #E8F5E9; border-color: #B7E0BE; }
+html[data-theme="light"] .rf-msg.err { color: #B00020; background: #FDECEA; border-color: #F3B9C0; }
+
+/* ── booking form ────────────────────────────────────── */
+html[data-theme="light"] .booking-form-section { background: var(--ink); }
+html[data-theme="light"] .booking-form-section::before { opacity: 0.45; }
+html[data-theme="light"] .booking-form-section .sec-head h2 { color: var(--text); }
+html[data-theme="light"] .bf-card {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 24px 60px rgba(10, 10, 20, 0.08);
+}
+html[data-theme="light"] .bf-field label { color: var(--text-soft); }
+html[data-theme="light"] .bf-field input,
+html[data-theme="light"] .bf-field select,
+html[data-theme="light"] .bf-field textarea {
+  background-color: #F7F7FA;
+  border-color: var(--border);
+  color: var(--text);
+}
+html[data-theme="light"] .bf-field input::placeholder,
+html[data-theme="light"] .bf-field textarea::placeholder { color: rgba(10, 10, 20, 0.35); }
+html[data-theme="light"] .bf-field input:focus,
+html[data-theme="light"] .bf-field select:focus,
+html[data-theme="light"] .bf-field textarea:focus { border-color: var(--red); background: #fff; }
+html[data-theme="light"] .bf-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230a0a14' stroke-opacity='.55' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: auto;
+}
+html[data-theme="light"] .bf-field select option { background: #fff; color: var(--text); }
+html[data-theme="light"] .bf-field input[type="date"] { color-scheme: light; }
+html[data-theme="light"] .bf-note { color: var(--text-soft); }
+html[data-theme="light"] .bf-msg.ok { color: #1B7A33; background: #E8F5E9; border-color: #B7E0BE; }
+html[data-theme="light"] .bf-msg.err { color: #B00020; background: #FDECEA; border-color: #F3B9C0; }
+
+/* ── coming soon ─────────────────────────────────────── */
+html[data-theme="light"] .coming-soon { background: var(--ink); }
+html[data-theme="light"] .coming-soon .sec-head h2 { color: var(--text); }
+html[data-theme="light"] .cs-card { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .cs-card::before { opacity: 0.4; }
+html[data-theme="light"] .cs-card h3 { color: var(--text); }
+
+/* ── gardens ─────────────────────────────────────────── */
+html[data-theme="light"] .gardens-section { background: var(--ink); }
+html[data-theme="light"] .gardens-section .sec-head h2 { color: var(--text) !important; }
+html[data-theme="light"] .gardens-section .sec-head > p:last-child { color: var(--muted) !important; }
+html[data-theme="light"] .gd-item { background: #E6E6EC; }
+
+/* ── bar (home) ──────────────────────────────────────── */
+html[data-theme="light"] .bar-section { background: var(--ink); }
+html[data-theme="light"] .main-menu-btn { background: #fff; border-color: var(--border); color: var(--text); }
+html[data-theme="light"] .main-menu-btn:hover { border-color: rgba(200, 16, 46, 0.5); background: #fff; }
+html[data-theme="light"] .menu-wrapper .menu-panel {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 20px 50px rgba(10, 10, 20, 0.08);
+}
+html[data-theme="light"] .menu-title { color: var(--text); }
+html[data-theme="light"] .menu-subtitle { color: var(--text-soft); }
+html[data-theme="light"] .category-btn { color: var(--text); }
+html[data-theme="light"] .category-content .menu-item { border-bottom-color: var(--border); }
+html[data-theme="light"] .category-content .menu-item strong { color: var(--text); }
+html[data-theme="light"] .category-content .menu-item small { color: var(--text-soft); }
+html[data-theme="light"] .close-menu { background: #F4F4F7; border-color: var(--border); color: var(--text); }
+html[data-theme="light"] .close-menu:hover { background: #ECECF2; }
+html[data-theme="light"] .menu-card { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .menu-card.featured {
+  background: linear-gradient(170deg, rgba(200, 16, 46, 0.07), #fff);
+  border-color: rgba(200, 16, 46, 0.4);
+}
+html[data-theme="light"] .menu-card h3 { color: var(--text); }
+html[data-theme="light"] .menu-items li { color: var(--text-soft); }
+html[data-theme="light"] .bar-atmosphere h3 { color: var(--text); }
+html[data-theme="light"] .atmosphere-item { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .atmosphere-item h4 { color: var(--text); }
+
+/* ── contact ─────────────────────────────────────────── */
+html[data-theme="light"] .c-card { box-shadow: 0 6px 18px rgba(10, 10, 20, 0.04); }
+
+/* ── cta band ────────────────────────────────────────── */
+html[data-theme="light"] .cta-band { background: var(--ink); }
+html[data-theme="light"] .cta-band::before { opacity: 0.35; }
+html[data-theme="light"] .cta-band h2 { color: var(--text); }
+
+/* ── footer ──────────────────────────────────────────── */
+html[data-theme="light"] footer {
+  background: #fff;
+  border-top-color: var(--border);
+  color: var(--text-soft);
+}
+html[data-theme="light"] .footer-grid { border-bottom-color: var(--border); }
+html[data-theme="light"] .footer-brand p { color: var(--text-soft); }
+html[data-theme="light"] .footer-col h5 { color: rgba(10, 10, 20, 0.45); }
+html[data-theme="light"] .footer-col a,
+html[data-theme="light"] .footer-col p { color: rgba(10, 10, 20, 0.75); }
+html[data-theme="light"] .footer-col a:hover { color: var(--red); }
+html[data-theme="light"] .footer-bottom { color: rgba(10, 10, 20, 0.45); }
+html[data-theme="light"] .footer-bottom a { color: rgba(10, 10, 20, 0.65); }
+html[data-theme="light"] .footer-bottom a:hover { color: var(--text); }
+html[data-theme="light"] .footer-social a { border-color: var(--border); color: var(--text); }
+
+/* ── page hero (inner pages) ─────────────────────────── */
+html[data-theme="light"] .page-hero {
+  background:
+    radial-gradient(80% 90% at 85% 10%, rgba(200, 16, 46, 0.16) 0%, transparent 60%),
+    linear-gradient(160deg, #FFFFFF 0%, #EDEDF3 70%);
+}
+html[data-theme="light"] .page-hero::before {
+  background-image:
+    linear-gradient(rgba(10, 10, 20, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 20, 0.06) 1px, transparent 1px);
+}
+html[data-theme="light"] .page-hero-content h1 { color: var(--text); }
+html[data-theme="light"] .page-hero-content p { color: var(--text-soft); }
+html[data-theme="light"] .page-hero-deco { opacity: 0.07; }
+
+/* ── room detail page ────────────────────────────────── */
+html[data-theme="light"] .room-detail { background: var(--ink); }
+html[data-theme="light"] .room-detail-text { color: var(--text); }
+html[data-theme="light"] .rd-title { color: var(--text); }
+html[data-theme="light"] .rd-desc { color: var(--text-soft); }
+html[data-theme="light"] .rd-amenity { background: #fff; border-color: var(--border); color: rgba(10, 10, 20, 0.75); }
+html[data-theme="light"] .rd-badge { background: #FDECEA; border-color: #F3B9C0; color: #B00020; }
+html[data-theme="light"] .room-divider { border-top-color: var(--border); }
+
+/* ── bar page ────────────────────────────────────────── */
+html[data-theme="light"] .bhs-item { background: #fff; border-color: var(--border); }
+html[data-theme="light"] .bhs-item h4 { color: var(--text); }
+html[data-theme="light"] .menu-section { background: var(--ink); }
+html[data-theme="light"] .menu-section .sec-head h2 { color: var(--text); }
+html[data-theme="light"] .menu-tab { background: #fff; border-color: var(--border); color: rgba(10, 10, 20, 0.7); }
+html[data-theme="light"] .menu-tab:hover { border-color: rgba(200, 16, 46, 0.55); color: var(--text); }
+html[data-theme="light"] .menu-tab.active { background: var(--red); border-color: var(--red); color: #fff; }
+html[data-theme="light"] .menu-cat h3 { border-bottom-color: var(--border); }
+html[data-theme="light"] .menu-item { border-bottom-color: var(--border); }
+html[data-theme="light"] .mi-name { color: var(--text); }
+html[data-theme="light"] .mi-desc { color: var(--text-soft); }
+
+/* ── gallery ─────────────────────────────────────────── */
+html[data-theme="light"] .gallery-section { background: var(--ink); }
+html[data-theme="light"] .gf-btn { background: #fff; border-color: var(--border); color: rgba(10, 10, 20, 0.7); }
+html[data-theme="light"] .gf-btn:hover { border-color: rgba(200, 16, 46, 0.55); color: var(--text); }
+html[data-theme="light"] .gf-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+html[data-theme="light"] .g-item { background: #E6E6EC; }
+html[data-theme="light"] .g-placeholder { background: #E6E6EC; color: var(--text-soft); }
+html[data-theme="light"] .gallery-note { color: var(--text-soft); }
+
+/* ── booking confirmed ───────────────────────────────── */
+html[data-theme="light"] .confirmed-wrap {
+  background:
+    radial-gradient(60% 60% at 50% 20%, rgba(200, 16, 46, 0.12) 0%, transparent 65%),
+    var(--ink);
+}
+html[data-theme="light"] .confirmed-card { background: #fff; border-color: var(--border); box-shadow: 0 30px 80px rgba(10, 10, 20, 0.12); }
+html[data-theme="light"] .confirmed-card h1 { color: var(--text); }
+html[data-theme="light"] .confirmed-btns .btn-outline-red { border-color: rgba(10, 10, 20, 0.2); color: var(--text); }
+html[data-theme="light"] .confirmed-btns .btn-outline-red:hover { background: var(--text); color: #fff; border-color: var(--text); }
+
+/* ── legal pages ─────────────────────────────────────── */
+html[data-theme="light"] .legal-body h2,
+html[data-theme="light"] .legal-body strong { color: var(--text); }
+
+/* ── nina chat ───────────────────────────────────────── */
+html[data-theme="light"] .nina-window { background: #fff; border-color: var(--border); box-shadow: 0 24px 70px rgba(10, 10, 20, 0.2); }
+html[data-theme="light"] .nina-msgs { background: #FAFAFC; }
+html[data-theme="light"] .msg.bot { background: #F0F0F5; color: var(--text); }
+html[data-theme="light"] .msg-time { color: var(--text-soft); }
+html[data-theme="light"] .nina-quick { background: #fff; border-top-color: var(--border); }
+html[data-theme="light"] .q-chip { background: #F2F2F6; color: var(--text); border-color: var(--border); }
+html[data-theme="light"] .q-chip:hover { background: #E9E9EF; }
+html[data-theme="light"] .nina-input-row { background: #fff; border-top-color: var(--border); }
+html[data-theme="light"] .nina-input { background: #F7F7FA; border-color: var(--border); color: var(--text); }
+html[data-theme="light"] .nina-input::placeholder { color: var(--text-soft); }
+
+/* ── mobile nav ──────────────────────────────────────── */
+html[data-theme="light"] .nav-links.open {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 24px 60px rgba(10, 10, 20, 0.15);
+}
+html[data-theme="light"] .nav-links.open a { color: rgba(10, 10, 20, 0.75); }
+html[data-theme="light"] .nav-links.open a:hover { background: rgba(10, 10, 20, 0.05); color: var(--text); }
+
+/* ── light-theme contrast fixes ──────────────────────── */
+.bf-note .bf-ok { color: #4ADE80; font-weight: 700; }
+.bf-note .bf-warn { color: #FF97A4; font-weight: 700; }
+html[data-theme="light"] .bf-note .bf-ok { color: #1B7A33; }
+html[data-theme="light"] .bf-note .bf-warn { color: #B00020; }
+
+/* ghost button stays readable on the photo hero */
+html[data-theme="light"] .hero .btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #fff;
+}
+html[data-theme="light"] .hero .btn-ghost:hover { background: #fff; color: var(--text); border-color: #fff; }
+
+/* booking-confirmed status */
+html[data-theme="light"] .status-box { background: #E8F5E9; border-color: #B7E0BE; }
+html[data-theme="light"] .status-box p { color: #1B7A33; }
+
+/* room detail image placeholder */
+html[data-theme="light"] .room-detail-img { background: #E6E6EC; }
+
+/* ── rooms page: coming soon card ────────────────────── */
+.coming-soon-card {
+  max-width: 1080px;
+  margin: 72px auto 0;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  text-align: center;
+}
+.coming-soon-card h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); color: #fff; margin: 10px 0 16px; }
+.coming-soon-card h2 em { color: var(--red-bright); font-style: normal; }
+.cs-desc { color: var(--muted); max-width: 480px; margin: 0 auto 24px; line-height: 1.8; }
+.cs-feats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.cs-feat { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+.cs-feat > span:first-child { font-size: 32px; }
+
+html[data-theme="light"] .coming-soon-card { background: #fff; border-color: var(--border); box-shadow: 0 10px 30px rgba(10, 10, 20, 0.05); }
+html[data-theme="light"] .coming-soon-card h2 { color: var(--text); }
+html[data-theme="light"] .coming-soon-card h2 em { color: var(--red); }

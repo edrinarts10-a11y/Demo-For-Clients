@@ -7,6 +7,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function () {
+  var t = 'dark';
+  try { t = localStorage.getItem('ritz-theme') || 'dark'; } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t);
+})();
+function toggleTheme() {
+  var root = document.documentElement;
+  var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  root.setAttribute('data-theme', next);
+  try { localStorage.setItem('ritz-theme', next); } catch (e) {}
+}
+</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,6 +37,9 @@
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark and light mode" title="Toggle dark / light mode">
+    <span class="tt-sun" aria-hidden="true">☀</span><span class="tt-moon" aria-hidden="true">☾</span>
+  </button>
   <a href="book.html" class="nav-cta">Book a Room</a>
   <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
 </nav>

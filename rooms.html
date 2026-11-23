@@ -16,6 +16,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function () {
+  var t = 'dark';
+  try { t = localStorage.getItem('ritz-theme') || 'dark'; } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t);
+})();
+function toggleTheme() {
+  var root = document.documentElement;
+  var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  root.setAttribute('data-theme', next);
+  try { localStorage.setItem('ritz-theme', next); } catch (e) {}
+}
+</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,6 +46,9 @@
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark and light mode" title="Toggle dark / light mode">
+    <span class="tt-sun" aria-hidden="true">☀</span><span class="tt-moon" aria-hidden="true">☾</span>
+  </button>
   <a href="book.html" class="nav-cta">Book a Room</a>
   <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
 </nav>
@@ -151,13 +167,13 @@
   </div>
 
   <!-- COMING SOON -->
-  <div style="max-width:1080px;margin:72px auto 0;padding:48px;background:rgba(255,255,255,0.035);border-radius:20px;border:1px dashed rgba(255,255,255,0.2);text-align:center;">
+  <div class="coming-soon-card">
     <p class="sec-label" style="justify-content:center;">Coming Soon</p>
-    <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);color:#fff;margin:10px 0 16px;">Sauna &amp; <em style="color:var(--red-bright);">Gym</em></h2>
-    <p style="color:var(--muted);max-width:480px;margin:0 auto 24px;line-height:1.8;">We're building a fully equipped gym and relaxing sauna at Ritz Motel. Stay tuned — these facilities will be available to all guests very soon.</p>
-    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;"><span style="font-size:32px;">🧖</span><span>Steam Sauna</span></div>
-      <div style="display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;"><span style="font-size:32px;">🏋️</span><span>Fitness Gym</span></div>
+    <h2>Sauna &amp; <em>Gym</em></h2>
+    <p class="cs-desc">We're building a fully equipped gym and relaxing sauna at Ritz Motel. Stay tuned — these facilities will be available to all guests very soon.</p>
+    <div class="cs-feats">
+      <div class="cs-feat"><span>🧖</span><span>Steam Sauna</span></div>
+      <div class="cs-feat"><span>🏋️</span><span>Fitness Gym</span></div>
     </div>
   </div>
 
